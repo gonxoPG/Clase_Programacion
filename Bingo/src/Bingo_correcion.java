@@ -6,11 +6,7 @@ public class Bingo_correcion {
 
         int[] carton = new int[10];
         int numalCarton;
-        int apuesta = 0;
-        int numVueltas = 0;
-        int numAciertos = 0;
-        int salidosLinea = 0;
-        int salidosBingo = 0;
+
 
         for (int i = 0; i < 10; i++) {
 
@@ -42,11 +38,12 @@ public class Bingo_correcion {
         System.out.println("Introduce tu apuesta");
 
         Scanner scanner = new Scanner(System.in);
-        apuesta = scanner.nextInt();
+        int apuesta = scanner.nextInt();
 
         System.out.println("Tu apuesta es " + apuesta + "€");
         System.out.println();
         System.out.println("¿Cuántas bolas harán falta para cantar el Bingo?");
+
 
         Scanner scanner2 = new Scanner(System.in);
         int cantidadAcierto = scanner2.nextInt();
@@ -55,6 +52,11 @@ public class Bingo_correcion {
 
         int[] bolas = new int[99];
         int numalBolas;
+
+        int numVueltas = 0;
+        int numAciertos = 0;
+        int salidosLinea = 0;
+        int salidosBingo = 0;
 
         for (int j = 0; j < bolas.length; j++) {
 
@@ -70,13 +72,10 @@ public class Bingo_correcion {
                     if (numalBolas == recorridoBolas) {
 
                         repetido2 = true;
-
-
-                    } else {
-                        repetido2 = false;
-                    }
+                        break;
                 }
                 numVueltas++;
+
             } while (repetido2);
 
             for (int recorrido : carton) {
