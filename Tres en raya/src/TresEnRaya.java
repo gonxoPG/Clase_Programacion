@@ -9,16 +9,4 @@ public class TresEnRaya {
         boolean raya = false;
 
     }
-
-    public static comprobarRaya(){
-        for (int i = 0; i < tablero.length; i++) {
-            for (int j = 0; j < tablero[i].length; j++) {
-                if (tablero[0][j]=='X' && tablero[0][j]=='O'){
-
-                } else if (tablero[1][j]=='X' && tablero[1][j]=='O') {
-
-                }else
-            }
-        }
-    }
 }
