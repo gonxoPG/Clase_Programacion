@@ -16,19 +16,14 @@ public class Coche {
         System.out.println("¿Cuántos Km/h quieres acelerar?");
         int velocidadAceleracion = teclado.nextInt();
 
-        int formulaAceleracion1 = 0;
-        int formulaAceleracion2 = 0;
+        velocidad = 10;
 
         if (cv<=100){
-            formulaAceleracion1 = (int) (Math.random()*velocidadAceleracion);
-            velocidad += formulaAceleracion1;
-            kms += (int) (formulaAceleracion1*0.5);
-        }else if (cv > 100){
-            formulaAceleracion2 = (int) ((Math.random()*velocidadAceleracion) + 10);
-            kms += (int) (formulaAceleracion2*0.5);
-        } else {
-            velocidad += 10;
-            kms += 5;
+            velocidad += (int) (Math.random()*velocidadAceleracion);
+            kms += velocidad * 0.5;
+        }else {
+            velocidad += (int) ((Math.random()*velocidadAceleracion) + 10);
+            kms += velocidad * 0.5;
         }
 
     }
@@ -39,8 +34,45 @@ public class Coche {
         System.out.println("Matrícula: "+matricula);
         System.out.println("Cavallos: "+cv);
         System.out.println("Cilindrada: "+cc);
-        System.out.println("Velocidad: "+velocidad);
-        System.out.println("Kilómetros recorridos: "+kms);
+        System.out.println();
+        //System.out.println("Velocidad: "+velocidad);
+        //System.out.println("Kilómetros recorridos: "+kms);
     }
 
+    public void mostrarVelocidadKms(){
+        System.out.println("La velocidad acumulada es "+velocidad+" Km/h");
+        System.out.println("Los kilómetros acumulados son "+kms);
+    }
+
+    public double getKms() {
+        return kms;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setTeclado(Scanner teclado) {
+        this.teclado = teclado;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public void setCv(int cv) {
+        this.cv = cv;
+    }
+
+    public void setCc(int cc) {
+        this.cc = cc;
+    }
 }

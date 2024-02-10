@@ -1,23 +1,110 @@
 package model;
 
+import java.util.Scanner;
+
 public class Carrera {
-    Coche participante1 = new Coche();
-    Coche participante2 = new Coche();
-    Coche ganador = new Coche();
+    private Coche participante1;
+    private Coche participante2;
+    private Coche ganador;
 
-    private int kmTotales, numeroVueltas;
-    //crear un menú con X númeroVueltas y kmTotales según el nombre del circuito (inventado)
+    private int kmTotales, numeroVueltas, vueltasTotales;
+    Scanner teclado = new Scanner(System.in);
+
+    public Carrera() {
+    }
+
+    public Carrera(Coche participante1, Coche participante2) {
+        this.participante1 = participante1;
+        this.participante2 = participante2;
+    }
+
     public void iniciarCarrera (){
-        participante1.mostrarDatos();
-        participante2.mostrarDatos();
 
-        System.out.println("🏁🚥 ¡EMPIEZA LA CARRERA! 🚥🏁");
 
-        for (int i = 0; i < numeroVueltas; i++) {
+            System.out.println("Elige el circuito: ");
+            System.out.println("\t1. Circuito de España");
+            System.out.println("\t2. Circuito de los Emiratos Árabes Unidos");
+            System.out.println("\t3. Circuito de EE.UU.");
+            System.out.println("\t4. Circuito de Japón");
 
-            System.out.println("Vuelta "+i+"/"+numeroVueltas);
-            participante1.acelerar();
-            participante2.acelerar();
+            int circuito = teclado.nextInt();
+
+            switch (circuito){
+                case 1:
+                    System.out.println("¡Has elegido el Circuito de España!");
+                    kmTotales = 467;
+                    numeroVueltas = 15;
+                    break;
+                case 2:
+                    System.out.println("¡Has elegido el Circuito de los Emiratos Árabes Unidos!");
+                    kmTotales = 617;
+                    numeroVueltas = 12;
+                    break;
+                case 3:
+                    System.out.println("¡Has elegido el Circuito de EE.UU.!");
+                    kmTotales = 620;
+                    numeroVueltas = 12;
+                    break;
+                case 4:
+                    System.out.println("¡Has elegido el Circuito de Japón!");
+                    kmTotales = 580;
+                    numeroVueltas = 14;
+            }
+
+            System.out.println("El número de vueltas es "+numeroVueltas);
+            System.out.println("La cantidad de kms es "+kmTotales);
+            System.out.println();
+
+            participante1.mostrarDatos();
+            participante2.mostrarDatos();
+
+            System.out.println("🏁🚥 ¡EMPIEZA LA CARRERA! 🚥🏁");
+
+            for (int i = 1; i <= numeroVueltas; i++) {
+
+                System.out.println("Vuelta " + i + "/" + numeroVueltas);
+                System.out.println("Piloto 1:");
+                participante1.acelerar();
+                System.out.println("Piloto 2:");
+                participante2.acelerar();
+            }
+            vueltasTotales = numeroVueltas;
+
+        if (participante1.getKms() < kmTotales || participante2.getKms() < kmTotales){
+
+            int vueltaExtra = 1;
+
+            do {
+
+                vueltasTotales = numeroVueltas + vueltaExtra;
+                System.out.println("Vuelta "+vueltasTotales+"/"+numeroVueltas);
+
+                System.out.println("Piloto 1:");
+                participante1.acelerar();
+
+                participante2.acelerar();
+                System.out.println("Piloto 2:");
+                vueltaExtra = vueltaExtra + 1;
+
+            }while (participante1.getKms() < kmTotales || participante2.getKms() < kmTotales);
+
         }
+
+        System.out.println("El número de vueltas totales han sido "+vueltasTotales);
+
+        System.out.println("🏁🏁🏁¡¡FIN DE LA CARRERA!!🏁🏁🏁");
+
+        if (participante1.getKms() >= kmTotales){
+            ganador = participante1;
+            //System.out.printf("🎆🎆🎆🏆¡¡¡El ganador ha sido el coche con matrícula %s!!🏆🎆🎆🎆", participante1.getMatricula());
+        }else {
+            ganador = participante2;
+            //System.out.printf("🎆🎆🎆🏆¡¡¡El ganador ha sido el coche con matrícula %s!!🏆🎆🎆🎆",participante2.getMatricula());
+        }
+
+        System.out.printf("🎆🎆🎆🏆¡¡¡El ganador ha sido el coche con matrícula %s!!🏆🎆🎆🎆\n", ganador.getMatricula());
+
+
+
     }
 }
