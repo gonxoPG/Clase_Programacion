@@ -29,8 +29,5 @@ public class Entrada {
 
         Carrera carrera1 = new Carrera(coche1, coche2);
         carrera1.iniciarCarrera();
-
-        coche1.mostrarVelocidadKms();
-        coche2.mostrarVelocidadKms();
     }
 }

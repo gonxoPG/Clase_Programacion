@@ -11,38 +11,36 @@ public class Coche {
     public Coche() {
     }
 
-    public void acelerar (){
+    public void acelerar() {
 
         System.out.println("¿Cuántos Km/h quieres acelerar?");
         int velocidadAceleracion = teclado.nextInt();
 
-        velocidad = 10;
 
-        if (cv<=100){
-            velocidad += (int) (Math.random()*velocidadAceleracion);
+        if (cv <= 100) {
+
+            velocidad += (int) (Math.random() * velocidadAceleracion);
+            if (velocidad < 10) {
+                velocidad = 10;
+            }
             kms += velocidad * 0.5;
-        }else {
-            velocidad += (int) ((Math.random()*velocidadAceleracion) + 10);
+        } else if (cv > 100) {
+            velocidad += (int) ((Math.random() * velocidadAceleracion) + 10); // ese +10 asegura que la velocidad mínima van a ser 10 km/h
             kms += velocidad * 0.5;
         }
-
     }
 
-    public void mostrarDatos (){
-        System.out.println("Marca: "+marca);
-        System.out.println("Modelo: "+modelo);
-        System.out.println("Matrícula: "+matricula);
-        System.out.println("Cavallos: "+cv);
-        System.out.println("Cilindrada: "+cc);
+    public void mostrarDatos() {
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Matrícula: " + matricula);
+        System.out.println("Cavallos: " + cv);
+        System.out.println("Cilindrada: " + cc);
         System.out.println();
         //System.out.println("Velocidad: "+velocidad);
         //System.out.println("Kilómetros recorridos: "+kms);
     }
 
-    public void mostrarVelocidadKms(){
-        System.out.println("La velocidad acumulada es "+velocidad+" Km/h");
-        System.out.println("Los kilómetros acumulados son "+kms);
-    }
 
     public double getKms() {
         return kms;
@@ -50,10 +48,6 @@ public class Coche {
 
     public String getMatricula() {
         return matricula;
-    }
-
-    public void setTeclado(Scanner teclado) {
-        this.teclado = teclado;
     }
 
     public void setMarca(String marca) {
