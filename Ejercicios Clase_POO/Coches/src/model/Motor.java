@@ -7,7 +7,6 @@ public class Motor {
 
     public Motor(int CV) {
         this.CV = CV;
-        litrosAceite = 0;
     }
 
     public int getLitrosAceite() {
