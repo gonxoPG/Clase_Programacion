@@ -10,8 +10,8 @@ public class Triangulo {
         this.altura = alt;
     }
 
-    public int calcularArea(int bas, int alt){
-        int area = (bas*alt)/2;
+    public int calcularArea(){
+        int area = (this.base*this.altura);
         return area;
     }
 }

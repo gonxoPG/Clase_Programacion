@@ -12,11 +12,19 @@ public class Cuadrado {
         this.altura = altura;
     }
 
-    public void calcularArea(int bas, int alt){
-        this.area = bas*alt;
+    public void calcularArea(){
+        this.area = this.base*this.altura;
     }
 
-    public void calcularPerimetro(int alt, int bas){
-        this.perimetro = 2*alt + 2*bas;
+    public void calcularPerimetro(){
+        this.perimetro = 2*this.altura + 2*this.base;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public double getPerimetro() {
+        return perimetro;
     }
 }
