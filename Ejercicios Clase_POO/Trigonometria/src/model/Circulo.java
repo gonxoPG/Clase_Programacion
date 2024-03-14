@@ -26,4 +26,10 @@ public class Circulo {
     public double getArea() {
         return area;
     }
+
+    public void mostrarDatos(){
+        calcularDiametro();
+        calcularArea();
+        System.out.printf("El círculo tiene un radio de %.2f y un diámetro de %.2f y por tanto su área es de %.2f\n", radio, diametro, area);
+    }
 }

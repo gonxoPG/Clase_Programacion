@@ -14,4 +14,8 @@ public class Triangulo {
         int area = (this.base*this.altura);
         return area;
     }
+
+    public void mostrarDatos(){
+        System.out.printf("El triángulo tiene una base de %d y una altura de %d y por tanto su área es de %d\n",base, altura, calcularArea());
+    }
 }

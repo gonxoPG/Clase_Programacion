@@ -27,4 +27,10 @@ public class Cuadrado {
     public double getPerimetro() {
         return perimetro;
     }
+
+    public void mostrarDatos(){
+        calcularArea();
+        calcularPerimetro();
+        System.out.printf("El cuadrado tiene una base de %d y una altura de %d. Su perímetro es de %.2f y su área es de %.2f\n", base, altura, perimetro, area);
+    }
 }
