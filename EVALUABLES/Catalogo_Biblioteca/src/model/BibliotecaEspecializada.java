@@ -14,9 +14,6 @@ public final class BibliotecaEspecializada extends Biblioteca {
     private BibliotecaPoliciaca bibliotecaPoliciaca;
     private BibliotecaEnsayo bibliotecaEnsayo;
 
-    //mostrarDatos con parámetro de selección del género de la biblioteca (switch)
-    //Hará falta un sout en el main pidiendo "temática"
-
     public void mostrarDatos(String tematica){
 
         switch (tematica.toLowerCase()){
