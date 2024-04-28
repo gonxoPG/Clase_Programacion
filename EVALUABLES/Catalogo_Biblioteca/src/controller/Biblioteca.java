@@ -71,15 +71,20 @@ public abstract class Biblioteca {
     }
 
     public void sacarLibro(int ISBN) {
+
+        boolean encontrado = false;
         for (Libro item : catalogo.getCatalogo()) {
-            if (catalogo.estaLibro(ISBN)) {
+            if (item.getISBN() == ISBN) {
+                encontrado = true;
                 catalogo.getCatalogo().remove(item);
                 contenedorLibros.remove(item);
                 System.out.println("Libro eliminado correctamente\n");
                 break;
-            } else {
-                System.out.println("El libro no se puede eliminar del catálogo porque no está");
             }
+        }
+
+        if (!encontrado) {
+            System.out.println("El libro no se puede eliminar del catálogo porque no está");
         }
     }
 
@@ -100,7 +105,7 @@ public abstract class Biblioteca {
         }
     }
 
-    public void exportarLibrosCatalogo(){
+    public void exportarLibrosCatalogo() {
         File file = new File("src/resource/Libros.obj");
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
@@ -116,7 +121,7 @@ public abstract class Biblioteca {
                 objectOutputStream.close();
             } catch (IOException e) {
                 System.out.println("Error en cerrado");
-            } catch (NullPointerException e){
+            } catch (NullPointerException e) {
                 System.out.println("Cerrado en nulo");
             }
         }

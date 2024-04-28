@@ -64,7 +64,7 @@ public class Entrada {
 
             switch (seleccionNum){
                 case 1:
-                    System.out.println("Introduce el autor, el número de páginas y el ISBN del libro que quieres agregar");
+                    System.out.println("Introduce el autor, el número de páginas y el ISBN del libro que quieres agregar:");
                     String autor = teclado.next();
                     int nPaginas = teclado.nextInt();
                     int ISBN = teclado.nextInt();
