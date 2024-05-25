@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Entrada {
@@ -17,15 +18,19 @@ public class Entrada {
 
         do {
 
-            System.out.println("Introduce nombre, apellido, DNI, número de teléfono y edad para crear un nuevo usuario:");
+            try {
+                System.out.println("Introduce nombre, apellido, DNI, número de teléfono y edad para crear un nuevo usuario:");
 
-            usuario = new Usuario(sc.next(), sc.next(), sc.next(), sc.nextInt(), sc.nextInt());
+                usuario = new Usuario(sc.next(), sc.next(), sc.next(), sc.nextInt(), sc.nextInt());
+                System.out.println("Usuario creado correctamente\n");
 
-            System.out.println("Usuario creado correctamente\n");
+                listaUsuarios.add(usuario);
+                System.out.println("Usuario agregado correctamente\n");
 
-            listaUsuarios.add(usuario);
-            System.out.println("Usuario agregado correctamente\n");
-
+            }catch (InputMismatchException e){
+                System.out.println("El elemento introducido no es válido");
+                sc.next();
+            }
 
             System.out.println("¿Quieres crear otro usuario? Y / N");
             respuesta = sc.next();
@@ -60,7 +65,13 @@ public class Entrada {
         } catch (IOException e) {
             System.out.println("Error en la escritura");
         }finally {
-            printWriter.close();
+            sc.close();
+
+            try {
+                printWriter.close();
+            }catch (NullPointerException e){
+                System.out.println("Cerrado en nulo");
+            }
         }
     }
 }
